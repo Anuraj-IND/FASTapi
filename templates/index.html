@@ -3,16 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Location Map</title>
+    <title>Disaster Safety Portal</title>
     <!-- Add Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-    <h1>Your Location</h1>
-    <div id="map"></div>
-    <div id="location-info">Loading your location...</div>
-    
+    <header>
+        <div class="gov-header">
+            <div class="logo">🏛️</div>
+            <h1>Disaster Safety Portal</h1>
+            <div class="emergency-number">Emergency: 112</div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="alert-box" id="status-box">
+                Checking your location for potential hazards...
+            </div>
+
+            <div class="map-container">
+                <div id="map"></div>
+                <div id="location-info">Initializing location services...</div>
+            </div>
+
+            <div class="safety-guidelines">
+                <h2>Emergency Guidelines</h2>
+                <div class="guidelines-tabs">
+                    <button class="tab-button active" onclick="showGuidelines('flood')">Flood</button>
+                    <button class="tab-button" onclick="showGuidelines('earthquake')">Earthquake</button>
+                    <button class="tab-button" onclick="showGuidelines('cyclone')">Cyclone</button>
+                    <button class="tab-button" onclick="showGuidelines('heavyrain')">Heavy Rain</button>
+                </div>
+                <div id="guidelines-content" class="guidelines-content">
+                    <!-- Guidelines will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>Official Disaster Management Portal</p>
+            <p>Emergency Contacts: Police: 100 | Fire: 101 | Ambulance: 108</p>
+        </div>
+    </footer>
+
     <!-- Add Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="/static/script.js"></script>
